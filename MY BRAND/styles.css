@@ -1,0 +1,14 @@
+body{
+    background-color: #372C2C;
+    color: white;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    z-index:1;
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    
+}
