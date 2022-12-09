@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
     <title>Lucie Niyomutoni | Home</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="./Assets/1655709966433.jpeg" type="image/x-icon">
@@ -15,10 +16,19 @@
  <section class="navbar">
 
     <div class="header">
-      <div class="logo">Lucie NIYOMUTONI</div>
+      <div class="logo">
+        <a href="index.html">Lucie NIYOMUTONI</a>
+        
+        <div class="toggleButton" id="toggleButton">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
       <nav class="menu-btn" id="menu">
           <div class="navlinks" id="navlinks">
             <ul>
+              <li class="closeButton" id="closeButton">
+                <i class="fa-solid fa-xmark"></i>
+              </li>
               <li ><a href="#home">Home</a></li>
               <li><a href="#about">About me</a></li>
               <li><a href="#skills">My Skills</a></li>
@@ -54,6 +64,11 @@
       <div class="aboutmeContent">
         <div class="aboutImage">
           <img src="./Assets/1655709966433.jpeg" alt="MEEEEE" />
+
+          <a href="./Assets/LUCIE CV.pdf" download>
+            <button class="myCv">Download My CV</button>
+          </a>
+          
         </div>
 
         <div class="eduawards">
@@ -70,7 +85,7 @@
                   <p class="educationTitle">2019-Now</p>
                 
                   <p>University of Rwanda</p>
-                  <p>Bachelor degree in computer engineering</p>
+                  <p>Bachelor's in computer engineering</p>
                 </div>
                 
                   <div>
@@ -90,9 +105,7 @@
                 mastercard faundation /FAWE RWANDA ,)</p>
             </div>
           </div>
-          <a href="./Assets/LUCIE CV.pdf" download>
-            <button class="myCv">Download My CV</button>
-          </a>
+          
           
         </div>
       </div>
@@ -185,7 +198,7 @@
           <div class="card-author">
             <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="author avatar" />
             <div class="author-info">
-              <p class="author-name">John Doe</p>
+              <p class="author-name">Acushla</p>
               <p class="post-timestamp">2h ago</p>
             </div>
           </div>
@@ -207,7 +220,7 @@
           <div class="card-author">
             <img src="https://images.unsplash.com/photo-1504728078670-d0a59873c8c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="author avatar" />
             <div class="author-info">
-              <p class="author-name">John Doe</p>
+              <p class="author-name">Lavender</p>
               <p class="post-timestamp">2h ago</p>
             </div>
           </div>
@@ -229,7 +242,7 @@
           <div class="card-author">
             <img src="https://images.unsplash.com/photo-1506422748879-887454f9cdff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="author avatar" />
             <div class="author-info">
-              <p>John Doe</p>
+              <p>Lucie Fifi</p>
               <p>2h ago</p>
             </div>
           </div>
@@ -243,7 +256,7 @@
 <section class="contact" id="contact">
   <div class="myContact" id="hideUserProfile">
       <div class="contactpicture">
-          <img src="./Assets/contactme.png" alt="contact me">
+          <img src="./Assets/contactMeColoured.png" alt="contact me">
       </div>
 
       <!-- contact me form -->
@@ -327,8 +340,8 @@
 </a>
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="./Js/index.js"></script>
 <script type="text/javascript" src="./Js/webActiveNav.js"></script> -->
+<script src="./Js/index.js"></script>
 </body>
 </html>
    
