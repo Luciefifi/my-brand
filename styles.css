@@ -1699,6 +1699,13 @@ section.loginAndSignUpForm {
     position: absolute;
     padding: 90px 25px 50px 25px;
 }
+
+div.mySkills {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+  padding: 0 50px;
+}
   /* my work section */
 
   section.work {
