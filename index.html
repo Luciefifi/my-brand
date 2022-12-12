@@ -262,16 +262,16 @@
       <!-- contact me form -->
       <div class="contactform">
           <h4>Contact Me</h4>
-          <form action="" id="contactForm">
+          <form action=""  onsubmit='return (validateContactForm());'   id="contactForm" name="myForm">
 
               <div id="contactMessage" style="text-align: center; padding: 20px;">
                   
               </div>
-
-              <input type="text" placeholder="Your names" id="visitorName">
-              <input type="email" placeholder="Your email" id="visitorEmail">
-              <input type="tel" placeholder="Your phone number" id="visitorTel">
-              <textarea name="" id="visitorMessage" cols="30" rows="10" placeholder="Your message"></textarea>
+              
+              <input type="text" placeholder="Your names" id="visitorName" name="Name">
+              <input type="email" placeholder="Your email" id="visitorEmail" name="email">
+              <input type="tel" placeholder="Your phone number" id="visitorTel" name="telephone" >
+              <textarea name="" id="visitorMessage" cols="30" rows="10" placeholder="Your message" name="message"></textarea>
               <input type="submit" value="Hire Me" id="messageSubmit">
           </form>
       </div>
