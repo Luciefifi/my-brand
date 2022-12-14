@@ -69,56 +69,10 @@ function validateLoginForm() {
     return true;
   }
   //end of login form validation
-
-function validateSignUpForm()
-{
-    if(document.signUpForm.fname.value=="")
-    {
-alert("your first name plaease");
-document.signUpForm.fname.focus();
-return false;
-    }
-
-    if(document.signUpForm.lname.value=="")
-    {
-        alert('your last name please');
-        document.signUpForm.lname.focus();
-        return false;
-    }
-
-    var emailAddress = document.signUpForm.emaddress.value;
-  atpos = emailAddress.indexOf("@");
-  dotpos = emailAddress.lastIndexOf(".");
-
-  if ((atpos < 1 || dotpos - atpos < 2) && emailAddress == "") {
-    alert("Please enter correct email ID");
-    document.signUpForm.emaddress.focus();
-    return false;
-  }
-
-  var pwd = document.signUpForm.pwd.value;
-  if(pwd=="")
-  {
-    alert("password must be filled");
-    document.signUpForm.pwd.focus();
-    return false;
-  }
-  if(pwd.length < 8)
-  {
-    alert("password should have atleast 8 characters");
-    alert("password must be filled");
-    document.signUpForm.pwd.focus();
-    return false;
-
-  }
-
-  var repwd = document.signUpForm.repwd.value;
-  if(repwd != pwd){
-    alert('passwords should be the same!');
-    document.signUpForm.repwd.focus();
-    return false
-  }
-  return true;
+ 
+function validateSignUpForm(){
+  
+   
 
 }
 //end of validation of signup form

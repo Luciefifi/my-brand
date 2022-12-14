@@ -74,30 +74,47 @@
         </form>
         </div>
         <div class="sign-up-htm">
-          <form action="login.html" onsubmit="return(validateSignUpForm());" name="signUpForm">
+          <form action="login.html" name="signUpForm" id="signupForm">
           <div class="group">
             <label for="user" class="label">First Name</label>
-            <input id="user" type="text" class="input" name="fname">
+            <input id="firstName" type="text" class="input" name="fname">
+            <div id="firstNameMessage">
+              
+            </div>
           </div>
           <div class="group">
             <label for="user" class="label">Last Name</label>
-            <input id="user" type="text" class="input" name="lname">
+            <input id="lastName" type="text" class="input" name="lname">
+            <div id="lastNameMessage">
+              
+            </div>
           </div>
           <div class="group">
             <label for="pass" class="label">Email Address</label>
-            <input id="pass" type="email" class="input"  name="emaddress">
+            <input id="userEmail" type="email" class="input"  name="emaddress">
+            <div id="emailMessage">
+              
+            </div>
           </div>
           <div class="group">
             <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password" name="pwd">
+            <input id="userPassword" type="password" class="input" data-type="password" name="pwd">
+            <div id="passwordMessage">
+              
+            </div>
           </div>
           <div class="group">
             <label for="pass" class="label">Repeat Password</label>
-            <input id="pass" type="password" class="input" data-type="password" name="repwd">
+            <input id="repeatPassword" type="password" class="input" data-type="password" name="repwd">
+            <div id="repeatPasswordMessage">
+              
+            </div>
           </div>
-          
-          <div class="group">
-            <input type="submit" class="button" value="Sign Up">
+          <div class="spinnerContainer" id="spinnerContainer">
+            
+          </div>
+          <div class="group" id="signupContainer">
+            <input type="submit" id="signUp" class="button" value="Sign Up">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -167,6 +184,7 @@
 
 
 <script src="./Js/index.js"></script>
+<script src="./Js/signup.js"></script>
 
 </body>
 </html>

@@ -788,6 +788,10 @@ section.loginAndSignUpForm {
   display: inline-block;
   border-bottom: 2px solid transparent;
 }
+
+.login-html .tab:hover{
+  cursor: pointer;
+}
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab {
   color: #fff;
@@ -816,6 +820,15 @@ section.loginAndSignUpForm {
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.1);
 }
+.spinnerContainer{
+  color: green;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+}
+
 .login-form .group input[data-type="password"] {
   -webkit-text-security: circle;
 }
