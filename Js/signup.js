@@ -21,11 +21,11 @@ repeatPasswordMessage.style.display = "none"
 
 signUpButton.addEventListener("click", (event)=>{
    event.preventDefault();
-   validateSignUpForm();
    signUp();
 })
 
 function signUp(){
+spinnerContainer.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="8%">`
 var emailAddress = document.signUpForm.emaddress.value;
 atpos = emailAddress.indexOf("@");
 dotpos = emailAddress.lastIndexOf(".");
@@ -109,7 +109,6 @@ else{
     localStorage.users = JSON.stringify(users)
 
     spinnerContainer.style.display = "block"
-    spinnerContainer.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="8%">`
     spinnerContainer.innerHTML = "User registered successfully!"
     setTimeout(()=>{location="login.html"}, 2000)
 

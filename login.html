@@ -51,21 +51,30 @@
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
       <div class="login-form">
         <div class="sign-in-htm">
-          <form action="" onsubmit="return(validateLoginForm());" name="loginForm">
+          <form action="" name="loginForm">
           <div class="group">
             <label for="user" class="label">Email Address</label>
-            <input id="user" type="email" class="input" name="email">
+            <input id="registeredEmail" type="email" class="input" name="email">
+            <div id="registeredEmailMessage">
+              
+            </div>
           </div>
           <div class="group">
             <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password" name="pwd">
+            <input id="registeredPassword" type="password" class="input" data-type="password" name="pwd">
+            <div id="registeredPasswordMessage">
+              
+            </div>
           </div>
           <div class="group">
             <input id="check" type="checkbox" class="check" checked>
             <label for="check"><span class="icon"></span> Keep me Signed in</label>
           </div>
+          <div id="loginMessage" style="text-align: center; color: red; font-weight: bold;">
+            
+          </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign In">
+            <input type="submit" class="button" id="signInButton" value="Sign In">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -185,6 +194,7 @@
 
 <script src="./Js/index.js"></script>
 <script src="./Js/signup.js"></script>
+<script src="./Js/login.js"></script>
 
 </body>
 </html>

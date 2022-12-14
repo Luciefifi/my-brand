@@ -33,9 +33,10 @@
               <li><a href="#about">About me</a></li>
               <li><a href="#skills">My Skills</a></li>
               <li><a href="#work">My Works</a></li>
-              <li><a href="#blog">Blog</a></li>
+              <li><a href="blog.html">Blog</a></li>
               <li><a href="#contact">Contact Me</a></li>
-              <li><a href="login.html" class="loginSignUpButton">Login / SignUp</a></li>
+              <li><a href="login.html" class="loginSignUpButton" id="loginSignUpButton">Login / SignUp</a></li>
+              <li id="addProfile"></li>
             </ul>
           </div>
       </nav>
@@ -269,9 +270,18 @@
               </div>
               
               <input type="text" placeholder="Your names" id="visitorName" name="Name">
+              <div id="nameErrorMessage">
+                hello
+              </div>
               <input type="email" placeholder="Your email" id="visitorEmail" name="email">
+              <div id="emailErrorMessage">
+
+              </div>
               <input type="tel" placeholder="Your phone number" id="visitorTel" name="telephone" >
+              <div id="phoneErrorMessage"></div>
               <textarea name="" id="visitorMessage" cols="30" rows="10" placeholder="Your message" name="message"></textarea>
+          <div id="errorMessage"></div>
+
               <input type="submit" value="Hire Me" id="messageSubmit">
           </form>
       </div>
@@ -342,6 +352,7 @@
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="./Js/webActiveNav.js"></script> -->
 <script src="./Js/index.js"></script>
+<script src="./Js/loggedInUser.js"></script>
 </body>
 </html>
    

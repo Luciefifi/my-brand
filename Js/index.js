@@ -14,10 +14,17 @@ nav.addEventListener("click", function () {
 });
 
 // contactform validation
+const nameErrorMesssage = document.getElementById('nameErrorMessage')
+nameErrorMesssage.style.display="none"
+const emailErrorMesssage = document.getElementById('emailErrorMessage')
+emailErrorMesssage.style.display="none"
 
 function validateContactForm() {
   if (document.myForm.Name.value == "") {
-    alert("Please provide your name!");
+    nameErrorMesssage.style.display="block"
+    nameErrorMesssage.style.color = "red"
+    nameErrorMesssage.style.fontWeight = "bold"
+    nameErrorMesssage.innerHTML = "username can not be empty"
     document.myForm.Name.focus();
     return false;
   }
@@ -27,7 +34,11 @@ function validateContactForm() {
   dotpos = emailID.lastIndexOf(".");
 
   if ((atpos < 1 || dotpos - atpos < 2) && emailID == "") {
-    alert("Please enter correct email ID");
+    emailErrorMesssage.style.display="block"
+    emailErrorMesssage.style.color = "red"
+    emailErrorMesssage.style.fontWeight = "bold"
+    emailErrorMesssage.innerHTML = "enter valid email address!"
+
     document.myForm.email.focus();
   }
 
@@ -51,29 +62,8 @@ function validateContactForm() {
 
 //login form validation
 
-function validateLoginForm() {
-    var userEmail = document.loginForm.email.value;
-    atpos = userEmail.indexOf("@");
-    dotpos = userEmail.lastIndexOf(".");
-  
-    if ((atpos < 1 || dotpos - atpos < 2) && userEmail == "") {
-      alert("Please enter correct email ID");
-      document.myForm.email.focus();
-    }
-    if (document.loginForm.pwd.value == "" ) {
-      alert("please password is required!");
-      document.loginForm.pwd.focus();
-      return false;
-    }
 
-    return true;
-  }
   //end of login form validation
- 
-function validateSignUpForm(){
-  
-   
 
-}
 //end of validation of signup form
 

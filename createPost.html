@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucie Niyomutoni | Dashboard</title>
+    <link rel="stylesheet" href="./CSS/adminPanel.css">
+    <link rel="stylesheet" href="./CSS/createPost.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <ul class="menu"> 
+        <div class="text">
+            <li class="item"><a href="index.html"><i class="far fa-arrow-alt-circle-left"></i>Back to Portfolio</a></li>
+            <li class="item"><a href="adminPanel.html"><i class="fas fa-home"></i>Home</a></li>
+            <li class="item"><a href="createPost.html"><i class="fas fa-edit"></i>Create a Post</a></li>
+            <li class="item"><a href="managePost.html"><i class="fa fa-archive"></i>Manage Posts</a></li>
+            <li class="item"><a><i class="fa fa-address-card"></i>Registered Users</a></li>
+            <li class="item"><a><i class="fa fa-envelope"></i>Client Messages</a></li>
+            <li class="item"><a><i class="fa fa-users"></i>Subscriptions</a></li>
+        </div>
+    </ul>
+
+    <br>
+    <div class="adminProfile">
+        <h1 style="text-transform: uppercase;" class="h">Welcome admin 👋</h1>
+        <div><a href="login.html" class="loginSignUpButton" id="loginSignUpButton">Login / SignUp</a></div>
+        <div class="profilePicture" id="profilePicture"></div>
+    </div>
+    
+
+    <br>
+    <h2 style="color: #eb279d; text-align: center; font-size: 2rem;">Create a Post</h2>
+    <fieldset class="createPost">
+        <div class="wrapper"> 
+            <div class="col-lg-12 page-main">
+            <div class="new-post">
+                
+                <form action="" id="blogForm" name="blogForm">  
+                <label for="" style="color: #eb279d; padding-top: 15px;">Post Title:</label>
+                <input type="text" class="title-input" placeholder="Post title" id="blogTitle" name="title" />
+                <div id="blogTitleErrorMessage" style="padding-bottom: 15px;">
+                    
+                </div>
+                <label for="" style="color: #eb279d; padding-top: 15px;">Post Picture:</label>
+                <input type="file" style="padding-top: 20px; " class="title-input" id="blogPicture" name="picture"/>
+                <div id="blogPictureErrorMessage" style="padding-bottom: 15px;">
+                    
+                </div>
+                <label for="" style="color: #eb279d; padding-top: 15px;">Post Description:</label>
+                <textarea id="blogDescription" class="post-area" name="description" style="height: 100px;">
+                </textarea>
+                <div id="blogDescriptionErrorMessage" style="padding-bottom: 15px;">
+                    
+                </div>
+                <label for="" style="color: #eb279d; padding-top: 15px;">Post Body:</label>
+                <textarea id="blogBody" class="post-area" name="body">
+                </textarea>
+                <div id="blogBodyErrorMessage" style="padding-bottom: 15px;">
+                    
+                </div>
+                <div id="postSuccessMessage" style="padding-top: 30px; margin-bottom: -30px;">
+                    
+                </div>
+                <button id="blogSubmitData" class="add-btn" style="margin-top: 40px;"><i class="fa fa-plus"></i> Add Post</button>
+            </form>
+            </div>
+            
+            </div>  
+            
+        </div>
+    </fieldset>
+
+    <script src="./Js/adminPanel.js"></script>
+    <script src="./Js/createPost.js"></script>
+</body>
+
+</html>

@@ -523,7 +523,7 @@ div.contactform h2 {
 
 div.contactform form input,
 textarea {
-  margin-bottom: 1.5vw;
+  margin-top: 1.5vw;
   padding: 1vw;
   border: 2px solid grey;
   border-radius: 10px;
@@ -844,6 +844,9 @@ section.loginAndSignUpForm {
 .login-form .group .button {
   background: #eb279d;
 }
+.login-form .group .button:hover{
+  cursor: pointer;
+}
 .login-form .group label .icon {
   width: 15px;
   height: 15px;
@@ -905,6 +908,251 @@ section.loginAndSignUpForm {
 .foot-lnk {
   text-align: center;
 }
+
+/* Blog */
+
+
+section.main a {
+  text-decoration: none;
+  color: #eb279d;
+}
+.main {
+  width: 100%;
+  /* min-height: 100vh; */
+  padding-bottom: 2rem;
+  overflow: hidden;
+  color: black;
+}
+
+.container {
+  max-width: 80rem;
+  /* height: 100%; */
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.container .deco {
+  height: 3rem;
+  width: 23rem;
+  filter: brightness(120%);
+}
+
+.flex-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+.cards-container {
+  padding: 7rem 2rem;
+}
+
+.cards-container h1{
+  color: #eb279d;
+}
+
+.card-box {
+  display: flex;
+  flex-flow: column;
+  width: 36.3rem;
+  background-color: white;
+  font-size: 0.92rem;
+  box-shadow: 0px 3px 4px gray;
+}
+
+.card-img {
+  height: 23rem;
+}
+
+.card-data,
+.card-title,
+.card-description {
+  padding: 0 1.5rem;
+}
+
+.card-data {
+  padding-top: 2rem;
+  padding-bottom: 1.3rem;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.data-text {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.blogSlash{
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.blogAuthorInfo{
+  font-weight: bold;
+}
+
+
+.text-right {
+  margin-left: 9.4rem;
+  margin-right: 1rem;
+}
+
+.autor {
+  font-weight: bold;
+}
+
+.card-title {
+  display: block;
+  margin: 0;
+  margin-bottom: 1.3rem;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+.card-description {
+  font-size: 1.15rem;
+  line-height: 1.7rem;
+  padding-bottom: 2rem;
+}
+
+
+/* Single Blog */
+
+
+.SingleBlogContainer {
+  display: grid;
+  grid-template-columns: 4rem 3fr 1fr 2rem;
+  margin-top: 5rem;
+  grid-column-gap: 2rem;
+  padding-bottom: 20px;
+}
+
+.header {
+  grid-column: 2 / 5;
+}
+
+.heading {
+  color: #eb279d;
+  font-weight: bold;
+}
+
+.header .subheading {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: smaller;
+  color: #455A64;
+}
+
+.content {
+  grid-column: 2 / 3;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.content .poster-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.aside .heading {
+  margin: 0;
+  font-weight: 600;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .SingleBlogContainer {
+    grid-template-columns: 2rem 3fr 1fr 2rem;
+  }
+  .content {
+    grid-column: 2 / 4;
+  }
+  .aside {
+    grid-column: 2 / 4;
+  }
+}
+
+.card {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.card img {
+  height: 100%;
+  width: 40%;
+  margin-right: 0.5rem;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card .title {
+  font-size: 0.8rem;
+}
+
+.card .author {
+  font-size: small;
+}
+
+
+/* Admin Panel */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 1200px) {
+  .card-box {
+    width: 30rem;
+  }
+
+  /* .container {
+    padding: 1%;
+  } */
+
+  /* .card-data {
+    display: flex;
+    justify-content: space-between;
+  } */
+
+  .text-right {
+    margin: 0;
+  }
+
+  .card-img {
+    height: 20rem;
+  }
+}
+
+
+
+
+
 
 /* Responsive Designs */
 @media only screen and (max-width: 1181px) {
@@ -1117,6 +1365,23 @@ section.loginAndSignUpForm {
   }
 
   /* End of footer section */
+}
+
+@media all and (max-width: 1000px) {
+  .flex-container {
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  .card-box {
+    width: 100%;
+  }
+
+  .card-img {
+    height: 27rem;
+  }
 }
 
 @media only screen and (max-width: 937px) {
@@ -1958,6 +2223,25 @@ div.mySkills {
     opacity: 0.8;
   }
 
+}
+
+
+@media all and (max-width: 550px) {
+  .card-img {
+    height: 20rem;
+  }
+
+  .data-text {
+    font-size: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 1rem;
+  }
 }
 
   /* End of footer section */
