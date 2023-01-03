@@ -177,7 +177,7 @@
 </section>
 
 
-<section class="Blog" id="blog">
+ <!-- <section class="Blog" id="blog"> 
   <div class="myBlogTitle">
     <h4>My Blogs</h4>
   </div>
@@ -249,8 +249,8 @@
           </div>
         </div>
       </div>
-</div>
-</section>
+</div> 
+ </section> -->
 
 <!-- Contact section -->
 
@@ -263,7 +263,7 @@
       <!-- contact me form -->
       <div class="contactform">
           <h4>Contact Me</h4>
-          <form action=""  onsubmit='return (validateContactForm());'   id="contactForm" name="myForm">
+          <form action=""     id="contactForm" name="myForm">
 
               <div id="contactMessage" style="text-align: center; padding: 20px;">
                   
@@ -279,10 +279,12 @@
               </div>
               <input type="tel" placeholder="Your phone number" id="visitorTel" name="telephone" >
               <div id="phoneErrorMessage"></div>
-              <textarea name="" id="visitorMessage" cols="30" rows="10" placeholder="Your message" name="message"></textarea>
-          <div id="errorMessage"></div>
+              <textarea name="message" id="visitorMessage" cols="30" rows="10" placeholder="Your message" ></textarea>
+          <div id="errorMessage">hello</div>
+          <div id="messageSentMessage">hey</div>
 
-              <input type="submit" value="Hire Me" id="messageSubmit">
+
+              <input type="submit" value="Hire Me" id="messageSubmitButton">
           </form>
       </div>
   </div>
@@ -323,7 +325,7 @@
                   <li><a href="#about">About</a></li>
                   <li><a href="#skills">My skills</a></li>
                   <li><a href="#work">My works</a></li>
-                  <li><a href="#blog">Blog</a></li>
+                  <li><a href="blog.html">Blog</a></li>
                   <li><a href="#contact">Contact Me</a></li>
                   <li id="loginLogout"><a href="login.html">Login/Signup</a></li>
               </ul>
@@ -353,6 +355,7 @@
 <script type="text/javascript" src="./Js/webActiveNav.js"></script> -->
 <script src="./Js/index.js"></script>
 <script src="./Js/loggedInUser.js"></script>
+<script src="./Js/contact.js"></script>
 </body>
 </html>
    
