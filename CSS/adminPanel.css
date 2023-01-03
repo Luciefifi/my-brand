@@ -64,6 +64,18 @@ p {
     text-align: justify;
     color: var(--cp);
 }
+/* p .postsNumber{
+    line-height: 28.1333px;
+    vertical-align: baseline;
+    letter-spacing: 0.5px;
+    word-spacing: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    font-family: Outfit, sans-serif;
+    text-align: justify;
+    color: var(--cp);  
+} */
 
 .text {
     margin: 0 0.5rem .7rem 0.5rem;
