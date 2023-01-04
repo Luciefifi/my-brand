@@ -2,39 +2,8 @@ const token = localStorage.getItem("token")
 const profilePicture = document.getElementById("profilePicture")
 const ourLoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
 const loginSignUpButton = document.getElementById("loginSignUpButton")
-const postsNumber = document.getElementById('postsNumber')
-postsNumber.style.paddingTop = "25px"
-const registeredUsers = document.getElementById('registeredUsers')
-registeredUsers.style.paddingTop= "25px"
-const messages = document.getElementById('messages')
-messages.style.paddingTop = "25px"
-const traffics = document.getElementById('traffics')
-traffics.style.paddingTop = "25px"
 
 
-const allPosts = JSON.parse(localStorage.getItem("posts"))
-const allUsers = JSON.parse(localStorage.getItem("users"))
-const allMessages = JSON.parse(localStorage.getItem('messages'))
-if(allPosts.length<=1){
-    postsNumber.innerHTML=allPosts.length +  " Post "
-}
-else{
-    postsNumber.innerHTML=allPosts.length + " Posts"
-}
-
-if(allUsers.length<=1){
-    registeredUsers.innerHTML=allUsers.length +  " Registered User "
-}
-else{
-    registeredUsers.innerHTML = allUsers.length + " Registered Users"
-}
-if(allMessages.length<=1){
-    messages.innerHTML=allMessages.length +  " Message "
-}
-else{
-    messages.innerHTML=allMessages.length + " Messages"
-}
-traffics.innerHTML= " 23 vistors ," + allPosts.length +  " Post  , " + allUsers.length +  " Registered User , " + allMessages.length +  " Message , " + " 70 subscribers"
 
 
 

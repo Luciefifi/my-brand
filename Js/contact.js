@@ -82,9 +82,14 @@ function hireMe() {
     messageSentMessage.style.fontWeight = "bold"
     messageSentMessage.innerHTML = "message sent !!!!"
     
-    setTimeout(()=>{location="#home"},1000)
+      setTimeout(()=>{location="#home"},1000)
       myForm.reset();
-   
+      nameErrorMesssage.style.display="none"
+      emailErrorMesssage.style.display="none"
+      phoneErrorMessage.style.display = "none"
+      errorMessage.style.display = "none"
+      
+     
 
     
 
@@ -92,4 +97,5 @@ function hireMe() {
 
 
  }
+
 }

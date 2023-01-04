@@ -285,7 +285,21 @@ fieldset .logo {
     flex: auto;
 }
 
+@media screen and (max-width: 950px){
+    fieldset.managePost {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: unset;
+    }
+
+    div.editPost {
+        flex-direction: row;
+    }
+}
+
 @media screen and (max-width: 900px) and (min-width: 600px) {
+    
     html {
         margin-left: 1rem;
     }
