@@ -1,6 +1,7 @@
 var allPosts;
 allPosts = JSON.parse(localStorage.getItem("posts"))
 const postsContainer = document.getElementById("postsContainer")
+const postLike = document.getElementById('postLike')
 
 for(let i=0; i<allPosts.length; i++){
     const postsArray = allPosts[i]
@@ -20,7 +21,7 @@ for(let i=0; i<allPosts.length; i++){
         <p class="title">${title}</p>
         <p>${date}</p>
         <p>4 <i class="fa fa-eye"></i></p>
-        <p>5 Likes</p>
+        <p >5 Likes</p>
         <p>5 Comments</p>
         <div class="editPost">
             <p onclick = "storePostTitle('${title}')"><i class="fas fa-edit"></i></p>
