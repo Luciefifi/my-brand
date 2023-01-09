@@ -6,15 +6,37 @@ for (let i=0 ; i<allMessages.length; i++){
      console.log(allMessages[i])
 
     const clientName = document.getElementById('clientName')
-    clientName.innerHTML = allMessages[i].Name
+    const clientNames = allMessages[i].Name
     const clientEmail = document.getElementById('clientEmail')
-    clientEmail.innerHTML = allMessages[i].Email
+    const clientEmails = allMessages[i].Email
 
     const clientPhone = document.getElementById('clientPhone')
-    clientPhone.innerHTML = allMessages[i].Tel
+    const clientPhones = allMessages[i].Tel
 
     const clientMessage = document.getElementById('clientMessage')
-    clientMessage.innerHTML = allMessages[i].Message
+    const clientMessages = allMessages[i].Message
+
+    
+
+    clientContainer.innerHTML += `
+        <fieldset class="manageMessage">
+            
+        <p class="userInfoBox">
+            <span>${clientNames}</span>
+            <span>${clientEmails}</span>
+            <span>${clientPhones}</span>
+        </p>
+       
+        <p class="userMessageBox">${clientMessages}</p>
+
+       
+        <div class="editPost">
+            <p onclick = "storePostTitle('${clientName}')" style="color:green">Reply</p>
+            <p onclick="deleteMessage('${clientPhones}')" style="color:red"> <i class="fa fa-trash"></i> </p>
+        </div>
+        
+    </fieldset> 
+    `
 }
 
 
@@ -22,11 +44,11 @@ for (let i=0 ; i<allMessages.length; i++){
 function deleteMessage(visitorTel){
     var client = allMessages.find(function(e)
     {
-        return e.clientPhone = allMessages.visitorTel;
+        return e.clientPhones = allMessages.visitorTel;
     });
     for (var j=0 ; j<allMessages.length; j++){
         var clients = allMessages[j];
-        if(clients.phone == clients.clientPhone){
+        if(clients.phone == clients.clientPhones){
             allMessages.splice(j,1);
         }
     }

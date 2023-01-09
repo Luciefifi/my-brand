@@ -1,12 +1,13 @@
 const Likes = document.getElementById('likeButton')
 
 const likeLoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
-
 const tokens = localStorage.getItem('token')
+
+
 
 if(!tokens)
 {
-Likes.style.display="block"
+// Likes.style.display="block"
 likeButton.addEventListener("click", (event)=>{
     event.preventDefault();
     alert('login first to like the blog')
@@ -14,7 +15,7 @@ likeButton.addEventListener("click", (event)=>{
 }
 else{
    
-    Likes.style.display="block"
+    // Likes.style.display="block"
 
     likeButton.addEventListener("click", (event)=>{
         event.preventDefault();
@@ -24,14 +25,39 @@ else{
 
     function likeBlog(){
         Likes.style.color = "red"
-        
-        var like ;
-        if(!localStorage.like)
-        {
-            like = []
+
+        let like;
+        if(!localStorage.like){
+            like = [] ;
         }
         else{
             like = JSON.parse(localStorage.like)
+        }
+
+        let likeCount;
+        if(!localStorage.likeCount){
+            likeCount = "" ;
+        }
+        else{
+            likeCount = JSON.parse(localStorage.likeCount)
+        }
+        
+        
+        for(let i=0; i<like.length; i++){
+            const likingEmail = like[i]
+            if(likingEmail.likeLoggedInUser == likeLoggedInUser.userEmail){
+                console.log(likingEmail.likeLoggedInUser)
+                console.log(likeLoggedInUser.userEmail)
+                like.splice(i, 1);
+                likeCount = JSON.stringify(like.length);
+                like = JSON.stringify(like);
+                localStorage.like = like;
+                
+                localStorage.likeCount = likeCount;
+
+                likeButton.innerHTML = likeCount + ` <i class="fa fa-thumbs-o-up"> </i>`
+                // history.go(0)
+            }
         }
 
         const UserToLikeEmail = {}
@@ -40,25 +66,13 @@ else{
         like.push(UserToLikeEmail)
         
         localStorage.like=JSON.stringify(like)
-        // console.log(like.length)
-        likeButton.innerHTML = like.length + ` <i class="fa fa-heart" ></i>
+        console.log(like.length)
+        likeCount = JSON.stringify(like.length);
+        localStorage.likeCount=likeCount
+        likeButton.innerHTML = likeCount + ` <i class="fa fa-heart" ></i>
     `
+    // let likes = JSON.parse(localStorage.like)
 
-      
-
-    //     const likeArray = JSON.parse(localStorage.like)
-    //    for(let i=0; i<likeArray.length; i++){
-    //     const likeEmail = likeArray[i].likeLoggedInUser
-
-    //     if(likeEmail === likeLoggedInUser.userEmail){
-    //         likeArray.pull(likeLoggedInUser)
-    //         localStorage.removeItem("like.likeLoggedInUser")
-    //     }
-
-    //     else{
-            
-    //     }
-    // }
 
     }
 
