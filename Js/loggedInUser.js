@@ -1,7 +1,7 @@
 const token = localStorage.getItem("token")
 const addProfile = document.getElementById("addProfile")
 const loginSignUpButton = document.getElementById("loginSignUpButton")
-const ourLoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
+
 
 if(!token){
   addProfile.style.display = "none"
@@ -9,6 +9,22 @@ if(!token){
 
 else{
     loginSignUpButton.style.display = "none"
+}
+
+async function loggedInUser(){
+
+    const getData = {
+        method: "GET",
+        headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
+    }
+    
+    let response = await fetch("http://localhost:5000/api/loggedInUser", getData)
+    const fetchedData = await response.json()
+    console.log(fetchedData)
+
+    const ourLoggedInUser = fetchedData.loggedInUser
+
+    
     addProfile.innerHTML = `
     <!DOCTYPE html>
     <html lang="en">
@@ -42,12 +58,12 @@ else{
               z-index: 3;
               top: 85px;
               right: 60px;
-              width: 300px;
+              width: 350px;
               text-align: center;
               text-align: center;
               padding-top: 20px;
               color: white;
-              Height: 450px;
+              height: auto;
           }
           
           a.ManageAccountLink{
@@ -88,7 +104,7 @@ else{
               width: 80px;
               height: 80px;
               border-radius: 50%;
-              margin-left: 115px;
+              margin-left: 135px;
               margin-bottom: 20px;
               line-height: 80px;
               font-weight: bold;
@@ -176,11 +192,14 @@ else{
             ${ourLoggedInUser.firstName.charAt(0)}${ourLoggedInUser.lastName.charAt(0)}
             </div>
             <h3 class="names" id="names">${ourLoggedInUser.firstName} ${ourLoggedInUser.lastName}</h3>
-            <p class="userFetchedEmail" style="font-weight: 500;">${ourLoggedInUser.userEmail}</p>
+            <p class="userFetchedEmail" style="font-weight: 500;">${ourLoggedInUser.email}</p>
             
             <div class="switchAccount" style=" padding: 30px 50px 58px 50px; ">
             <a href="adminPanel.html" class="switchAccountLink" id="adminPanel"> 
             Admin Panel
+            </a>
+            <a href="index.html#contact" class="switchAccountLink" id="contactMe"> 
+            Contact Me
             </a>
             </div>
             <div class="preNavLogin" style="border-top: 1px solid white;">
@@ -194,6 +213,8 @@ else{
 
     const topProfileImage = document.getElementById("profilePicture");
     const UserProfile = document.getElementById("userProfile");
+    const adminPanel = document.getElementById("adminPanel");
+    const contactMe = document.getElementById("contactMe");
     UserProfile.style.display = "none"
     topProfileImage.addEventListener("click", ()=>{
         if(UserProfile.style.display !== "none"){
@@ -205,9 +226,21 @@ else{
         }
         })
 
-    function preNavLogoutUser(){
-        localStorage.removeItem("token")
-        location = "index.html"
+    //Hide and show admin panel button
+    if(ourLoggedInUser.role == "admin"){
+        contactMe.style.display = "none"
     }
+    else{
+        adminPanel.style.display = "none"
+    }
+
+    
+}
+
+loggedInUser()
+
+function preNavLogoutUser(){
+    localStorage.removeItem("token")
+    location = "index.html"
 }
 
