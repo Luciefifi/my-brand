@@ -6,17 +6,35 @@ var targetedPost = allBlogs.find(function(e) {
     return e.title == storedTitle;
   });
 
-const titleHeading = document.getElementById("blogTitle")
-titleHeading.value = targetedPost.title;
 
-const singleBlogDescription = document.getElementById("blogDescription")
-singleBlogDescription.innerHTML = targetedPost.description
+const url = new URL(window.location.href);
+const postId = url.searchParams.get('postId');
 
-const singleBlogBody = document.getElementById("blogBody")
-singleBlogBody.innerHTML = targetedPost.body;
+  const getData = {
+      method: "GET",
+      headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
+  }
 
-const singleBlogPicture = document.getElementById("singleBlogPicture")
-singleBlogPicture.src = targetedPost.picture;
+  fetch(`http://localhost:5000/api/getSingleBlog/${postId}`, getData)
+  .then(response => response.json())
+  .then((fetchedData)=>{
+      console.log(fetchedData)
+
+      const singleBlog = fetchedData.data
+  
+      const titleHeading = document.getElementById("blogTitle")
+      titleHeading.value = singleBlog.title;
+
+      const singleBlogDescription = document.getElementById("blogDescription")
+      singleBlogDescription.innerHTML = singleBlog.description
+
+      const singleBlogPicture = document.getElementById("singleBlogPicture")
+      singleBlogPicture.src = singleBlog.image;
+
+      const singleBlogBody = document.getElementById("blogBody")
+      singleBlogBody.innerHTML = singleBlog.blogBody;
+
+  })
 
 
 
@@ -27,13 +45,23 @@ const blogPicture = document.getElementById("blogPicture")
 const blogDescription = document.getElementById("blogDescription")
 const blogBody = document.getElementById("blogBody")
 const blogSubmitData = document.getElementById("blogSubmitData")
+const updatePostMessage = document.getElementById("updatePostMessage")
+updatePostMessage.style.display = "none"
 
 blogSubmitData.addEventListener("click", (event)=>{
     event.preventDefault();
+    updatePostMessage.style.display = "block"
+    updatePostMessage.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="8%">`
     editPost();
  })
 
 function editPost(){
+
+    if (!blogPicture.files[0]) {
+        updatePostMessage.style.color = "red"
+        updatePostMessage.innerHTML = "Please add a post image or confirm the previous one to edit a post!"
+        return;
+      }
 
     // Convert image to a data URL
     const imageLink =  blogPicture.files
@@ -41,22 +69,41 @@ function editPost(){
      reader.readAsDataURL(imageLink[0])
      reader.addEventListener("load",()=>{
         finalImage = reader.result
+
+    const data = {
+        title: blogTitle.value, 
+        description: blogDescription.value, 
+        blogBody: blogBody.value,
+        image: finalImage ,
+    }
  
-    const singlePost = {}
-    singlePost.title = blogTitle.value || targetedPost.title;
-    singlePost.picture = finalImage || targetedPost.picture;
-    singlePost.description = blogDescription.value || targetedPost.description;
-    singlePost.body = blogBody.value || targetedPost.body;
-    singlePost.date = targetedPost.date;
-    singlePost.authorFirstName = targetedPost.authorFirstName;
-    singlePost.authorLastName = targetedPost.authorLastName;
+    const sendData = {  
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+    }
 
-    
-    allBlogs[allBlogs.indexOf(targetedPost)] = singlePost
-    localStorage.posts = JSON.stringify(allBlogs)
-    postSuccessMessage.innerHTML = "Post updated successfully!"
-    setTimeout(()=>{location="managePost.html"}, 2000)
+    fetch(`http://localhost:5000/api/updatePost/${postId}`, sendData)
+    .then(response => response.json())
+    .then((fetchedData)=>{
+        console.log(fetchedData)
 
-    blogForm.reset();
-})
-}
+        if (fetchedData.successMessage){
+            updatePostMessage.style.color = "green"
+            updatePostMessage.innerHTML = fetchedData.successMessage
+            setTimeout(()=>{location="managePost.html"},2000)
+        }
+
+        else if (fetchedData.validationError){
+            updatePostMessage.style.color = "red"
+            updatePostMessage.innerHTML = fetchedData.validationError
+        }
+
+        else{
+            updatePostMessage.style.color = "red"
+            updatePostMessage.innerHTML = "Something went wrong, we were unable to create this post!"
+        }
+    })
+
+        })
+    }
