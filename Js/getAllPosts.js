@@ -24,12 +24,13 @@ for(let i=0; i< data.data.length; i++){
     console.log(postsArray)
     const title = postsArray.title;
     const picture = postsArray.image;
+    const postId = postsArray._id;
     const description = postsArray.description;
     const body = postsArray.blogBody;
     const date = postsArray.createdAt;
-    const authorNames = postsArray.authorFirstName +" "+postsArray.authorLastName;
+    const authorNames = postsArray.createdBy.firstName +" "+postsArray.createdBy.lastName;
     const authorImageTemplate = `<div class="profilePicture">
-   
+     ${postsArray.createdBy.firstName.charAt(0) + postsArray.createdBy.lastName.charAt(0)}
   </div>`
 
        postsContainer.innerHTML += `
@@ -48,16 +49,14 @@ for(let i=0; i< data.data.length; i++){
             <p class="data-text">${date}</p>
         </div>
 
-        <a href="singleBlog.html" class="card-title" onclick = "storeBlogTitle('${title}')">${title}</a>
+        <a href="singleBlog.html?postId=${postId}" class="card-title">${title}</a>
         <p class="card-description">${description}</p>
         </div>
     </div>
     `
 
 }
-function storeBlogTitle(title){
-   localStorage.setItem("blogTitle", title)
-}
+
   })
 //    console.log(posts);
   .catch(error => console.log(error.message));
