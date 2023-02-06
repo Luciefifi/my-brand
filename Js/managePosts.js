@@ -14,6 +14,8 @@ fetch(URL)
   .then(data => {
     // posts = data;
     // console.log(posts);
+//     posts = data;
+//     console.log(posts);
 //     var allPosts;
 // allPosts = posts
 // console.log(allPosts)

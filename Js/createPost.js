@@ -1,108 +1,71 @@
-const blogTitle = document.getElementById("blogTitle")
-const blogPicture = document.getElementById("blogPicture")
-const blogDescription = document.getElementById("blogDescription")
-const blogBody = document.getElementById("blogBody")
-const blogSubmitData = document.getElementById("blogSubmitData")
-const blogForm = document.getElementById("blogForm")
-const blogTitleErrorMessage = document.getElementById("blogTitleErrorMessage")
-const blogPictureErrorMessage = document.getElementById("blogPictureErrorMessage")
-const blogDescriptionErrorMessage = document.getElementById("blogDescriptionErrorMessage")
-const blogBodyErrorMessage = document.getElementById("blogBodyErrorMessage")
-const postSuccessMessage = document.getElementById("postSuccessMessage")
+// Creating a post
 
-blogSubmitData.addEventListener("click", (event)=>{
+const submitPosts = document.getElementById("blogSubmitData");
+const postMessages = document.getElementById("postMessage");
+
+postMessages.style.display = "none"
+
+submitPosts.addEventListener("click", (event) =>{
     event.preventDefault();
-    blogPost();
- })
+    postMessages.style.display = "block"
 
-function blogPost(){
+    postMessages.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="8%">`
 
-if(document.blogForm.title.value==""){
-    blogTitleErrorMessage.style.display = "block"
-    blogTitleErrorMessage.style.color = "red"
-    blogTitleErrorMessage.style.fontWeight = "bold"
-    blogTitleErrorMessage.innerHTML = "The title can not be empty!"
-    document.signUpForm.title.focus();
-}
-
-else if(document.blogForm.picture.value==""){
-    blogPictureErrorMessage.style.display = "block"
-    blogPictureErrorMessage.style.color = "red"
-    blogPictureErrorMessage.style.fontWeight = "bold"
-    blogPictureErrorMessage.innerHTML = "A blog picture is required!"
-        document.signUpForm.picture.focus();
-    }
-else if(document.blogForm.description.value==0){
-    blogDescriptionErrorMessage.style.display = "block"
-    blogDescriptionErrorMessage.style.color = "red"
-    blogDescriptionErrorMessage.style.fontWeight = "bold"
-    blogDescriptionErrorMessage.innerHTML = "Blog description can not be empty!"
-        document.signUpForm.description.focus();
-    }
-else if(document.blogForm.body.value==0){
-    blogBodyErrorMessage.style.display = "block"
-    blogBodyErrorMessage.style.color = "red"
-    blogBodyErrorMessage.style.fontWeight = "bold"
-    blogBodyErrorMessage.innerHTML = "Blog body is required!"
-        document.signUpForm.body.focus();
-    }
+    createPost();
+});
 
 
+async function createPost(){
+    const postImage = document.getElementById("postImage");
+    const postTitle = document.getElementById("postTitle");
+    const postDescription = document.getElementById("postDescription");
+    const postBody = document.getElementById("postBody");
 
-else{
-  
-  blogTitleErrorMessage.style.display = "none"
-  blogPictureErrorMessage.style.display = "none"
-  blogDescriptionErrorMessage.style.display = "none"
-  blogBodyErrorMessage.style.display = "none"
+    if (!postImage.files[0]) {
+        postMessages.style.color = "red"
+        postMessages.innerHTML = "Please add a post image!"
+        return;
+      }
     
-  var posts;
-
-    if(!localStorage.posts){
-        posts = []
-    }
-    else{
-        posts = JSON.parse(localStorage.posts)
-    }
-
-    // Convert image to a data URL
-    const imageLink =  blogPicture.files
-     const reader =  new FileReader();
-     reader.readAsDataURL(imageLink[0])
+    const reader =  new FileReader();
+     reader.readAsDataURL(postImage.files[0])
      reader.addEventListener("load",()=>{
-        finalImage = reader.result
+    const finalPostImage = reader.result
 
-    // Get the current date
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var yyyy = today.getFullYear();
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    const month = monthNames[today.getMonth()]
-    today = month + ' ' + dd + ', ' + yyyy;
+    const data = {
+        title: postTitle.value, 
+        description: postDescription.value, 
+        blogBody: postBody.value,
+        image: finalPostImage,
+    }
+        
 
-    //Get blog author
-    const LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
- 
-    const singlePost = {}
-    singlePost.title = blogTitle.value;
-    singlePost.picture = finalImage;
-    singlePost.description = blogDescription.value;
-    singlePost.body = blogBody.value;
-    singlePost.date = today;
-    singlePost.authorFirstName = LoggedInUser.firstName;
-    singlePost.authorLastName = LoggedInUser.lastName;
+    const sendData = {  
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+    }
 
-    
-    posts.push(singlePost)
-    localStorage.posts = JSON.stringify(posts)
+fetch("http://localhost:5000/api/create", sendData)
+.then(response => response.json())
+.then((fetchedData)=>{
+    console.log(fetchedData)
 
-    postSuccessMessage.innerHTML = "Post created successfully!"
-    setTimeout(()=>{location="managePost.html"}, 2000)
+    if (fetchedData.successMessage){
+        postMessages.style.color = "green"
+        postMessages.innerHTML = fetchedData.successMessage
+    }
 
-    blogForm.reset();     
-  }
+    else if (fetchedData.validationError){
+        postMessages.style.color = "red"
+        postMessages.innerHTML = fetchedData.validationError
+    }
 
-     )}
+    else{
+        postMessages.style.color = "red"
+        postMessages.innerHTML = "Something went wrong, we were unable to create this post!"
+    }
+})
+
+    })
 }
