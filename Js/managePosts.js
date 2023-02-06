@@ -1,18 +1,34 @@
-var allPosts;
-allPosts = JSON.parse(localStorage.getItem("posts"))
+
+
 const postsContainer = document.getElementById("postsContainer")
 const postLike = document.getElementById('postLike')
-
-for(let i=0; i<allPosts.length; i++){
-    const postsArray = allPosts[i]
+var posts = ''
+const URL = "http://localhost:5000/api/getAllBlogs"
+fetch(URL)
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    return res.json();
+  })
+  .then(data => {
+    // posts = data;
+    // console.log(posts);
+//     var allPosts;
+// allPosts = posts
+// console.log(allPosts)
+// console.log()
+for(let i=0; i< data.data.length; i++){
+    postsArray = data.data[i]
+    console.log(postsArray)
     const title = postsArray.title;
-    const picture = postsArray.picture;
+    const picture = postsArray.image;
     const description = postsArray.description;
-    const body = postsArray.body;
-    const date = postsArray.date;
+    const body = postsArray.blogBody;
+    const date = postsArray.createdAt;
     const authorNames = postsArray.authorFirstName +" "+postsArray.authorLastName;
     const authorImageTemplate = `<div class="profilePicture">
-    ${postsArray.authorFirstName.charAt(0)}${postsArray.authorLastName.charAt(0)}
+   
   </div>`
 
     postsContainer.innerHTML += `
@@ -54,3 +70,8 @@ function storePostTitle(title){
     localStorage.setItem("postTitle", title)
     location = "updatePost.html"
  }
+
+  })
+//    console.log(posts);
+  .catch(error => console.log(error.message));
+
