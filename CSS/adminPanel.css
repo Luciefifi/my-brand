@@ -203,6 +203,33 @@ fieldset.managePost {
     margin: 1rem;
 }
 
+fieldset.manageMessage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    border: var(--border);
+    border-width: 0;
+    background-color: var(--col2);
+    padding: 1rem;
+    border-radius: 5px;
+    position: relative;
+    font-size: 0.5rem;
+    max-width: 100%;
+    margin: 1rem;
+}
+
+.userInfoBox{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.userMessageBox{
+    padding: 50px;
+    display: block;
+}
+
 div.editPost{
     display: flex;
     flex-direction: column;
@@ -279,6 +306,11 @@ fieldset .logo {
     justify-content: left;
     align-items: stretch;
 }
+
+.container .headings {
+    color: #eb279d;
+}
+
 
 .container>* {
 

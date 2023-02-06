@@ -89,30 +89,69 @@ else{
   passwordMessage.style.display = "none"
   repeatPasswordMessage.style.display = "none"
     
-  var users;
+  // var users;
 
-    if(!localStorage.users){
-        users = []
-    }
-    else{
-        users = JSON.parse(localStorage.users)
-    }
+  //   if(!localStorage.users){
+  //       users = []
+  //   }
+  //   else{
+  //       users = JSON.parse(localStorage.users)
+  //   }
     
-    const individualUser = {}
-    individualUser.firstName = firstName.value;
-    individualUser.lastName = lastName.value;
-    individualUser.userEmail = userEmail.value;
-    individualUser.userPassword = userPassword.value;
-    individualUser.repeatPassword = repeatPassword.value;
+  //   const individualUser = {}
+  //   individualUser.firstName = firstName.value;
+  //   individualUser.lastName = lastName.value;
+  //   individualUser.userEmail = userEmail.value;
+  //   individualUser.userPassword = userPassword.value;
+  //   individualUser.repeatPassword = repeatPassword.value;
     
-    users.push(individualUser)
-    localStorage.users = JSON.stringify(users)
+  //   users.push(individualUser)
+  //   localStorage.users = JSON.stringify(users)
 
+    // spinnerContainer.style.display = "block"
+    // spinnerContainer.innerHTML = "User registered successfully!"
+    // setTimeout(()=>{location="login.html"}, 2000)
+
+    // signupForm.reset();     
+    // localStorage.setItem("users", users.push(individualUser))
+const URL = "http://localhost:5000/api/createUser"
+fetch(URL, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    firstName : firstName.value,
+    lastName:lastName.value,
+    email :userEmail.value,
+    password:userPassword.value,
+    repeatPassword:repeatPassword.value
+  })
+})
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    if (res.headers.get("content-type").indexOf("application/json") !== -1) {
+      return res.json();
+    } else {
+      throw new Error("Unexpected content type: " + res.headers.get("content-type"));
+    }
+  })
+  .then(data => {
+    const dataArray = []
+    dataArray.push(data)
     spinnerContainer.style.display = "block"
     spinnerContainer.innerHTML = "User registered successfully!"
     setTimeout(()=>{location="login.html"}, 2000)
 
-    signupForm.reset();     
-    // localStorage.setItem("users", users.push(individualUser))
+    signupForm.reset(); 
+    console.log("User registered successfully!");
+    console.log(data);
+  })
+  .catch(error => console.error(error));
+
+    
+    
   }
 }
