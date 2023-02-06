@@ -236,6 +236,10 @@ div.editPost{
     gap: 20px;
 }
 
+div.editPost a{
+    font-size: 17px;
+}
+
 div.editPost p:hover{
     cursor: pointer;
 }

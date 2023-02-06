@@ -24,14 +24,8 @@ for(let i=0; i< data.data.length; i++){
     postsArray = data.data[i]
     console.log(postsArray)
     const title = postsArray.title;
-    const picture = postsArray.image;
-    const description = postsArray.description;
-    const body = postsArray.blogBody;
+    const postId= postsArray._id;
     const date = postsArray.createdAt;
-    const authorNames = postsArray.authorFirstName +" "+postsArray.authorLastName;
-    const authorImageTemplate = `<div class="profilePicture">
-   
-  </div>`
 
     postsContainer.innerHTML += `
         <fieldset class="managePost">
@@ -42,7 +36,7 @@ for(let i=0; i< data.data.length; i++){
         <p >5 Likes</p>
         <p>5 Comments</p>
         <div class="editPost">
-            <p onclick = "storePostTitle('${title}')"><i class="fas fa-edit"></i></p>
+            <a href="updatePost.html?postId=${postId}"><i class="fas fa-edit"></i></a>
             <p onclick="deletePost('${title}')"><i class="fa fa-trash"></i></p>
         </div>
         
