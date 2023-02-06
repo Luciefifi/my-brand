@@ -29,9 +29,7 @@ for(let i=0; i< data.data.length; i++){
     const body = postsArray.blogBody;
     const date = postsArray.createdAt;
     const authorNames = postsArray.createdBy.firstName +" "+postsArray.createdBy.lastName;
-    const authorImageTemplate = `<div class="profilePicture">
-     ${postsArray.createdBy.firstName.charAt(0) + postsArray.createdBy.lastName.charAt(0)}
-  </div>`
+    const authorImageTemplate = postsArray.createdBy.firstName.charAt(0) + postsArray.createdBy.lastName.charAt(0)
 
        postsContainer.innerHTML += `
         <div href="#" class="card-box">
@@ -39,7 +37,9 @@ for(let i=0; i< data.data.length; i++){
         <div class="card-text">
         <div class="card-data">
             <div class="card-author">
-            ${authorImageTemplate}
+            <div class="profilePicture">
+              ${authorImageTemplate}
+            </div>
             <div class="author-info blogAuthorInfo">
                 <p class="author-name">${authorNames}</p>
                 <p class="post-timestamp">Admin</p>
