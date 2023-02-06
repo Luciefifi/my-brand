@@ -1,8 +1,9 @@
-var allPosts;
-allPosts = JSON.parse(localStorage.getItem("posts"))
+
+
 const postsContainer = document.getElementById("postsContainer")
 const postLike = document.getElementById('postLike')
 var posts = ''
+const URL = "http://localhost:5000/api/getAllBlogs"
 fetch(URL)
   .then(res => {
     if (!res.ok) {
@@ -11,6 +12,8 @@ fetch(URL)
     return res.json();
   })
   .then(data => {
+    // posts = data;
+    // console.log(posts);
 //     posts = data;
 //     console.log(posts);
 //     var allPosts;
