@@ -9,7 +9,7 @@ submitPosts.addEventListener("click", (event) =>{
     event.preventDefault();
     postMessages.style.display = "block"
 
-    postMessages.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="8%">`
+    postMessages.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="40px">`
 
     createPost();
 });
@@ -54,6 +54,7 @@ fetch("http://localhost:5000/api/create", sendData)
     if (fetchedData.successMessage){
         postMessages.style.color = "green"
         postMessages.innerHTML = fetchedData.successMessage
+        setTimeout(()=>{location="managePost.html"},2000)
     }
 
     else if (fetchedData.validationError){

@@ -51,7 +51,7 @@ updatePostMessage.style.display = "none"
 blogSubmitData.addEventListener("click", (event)=>{
     event.preventDefault();
     updatePostMessage.style.display = "block"
-    updatePostMessage.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="8%">`
+    updatePostMessage.innerHTML = `<img src="../Assets/loading1.gif" alt="" width="40px">`
     editPost();
  })
 
