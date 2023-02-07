@@ -38,6 +38,83 @@ html {
     margin-right: 2rem;
 }
 
+/* popup box */
+
+.popupBox{
+    width: 400px;
+    background: white;
+    border-radius: 6px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    z-index: 999;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    box-shadow: 0px 0px 20px gray;
+  }
+  
+  .open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  
+  
+  .popupBox img{
+    width: 150px;
+    margin-top: -70px;
+  }
+  .popupBox h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 10px 0 10px;
+  }
+  .popupBox p{
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .popupBox div.buttons{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .popupBox button.deletePost{
+    width: 40%;
+    margin-top: 30px;
+    padding: 7px 0;
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
+     font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popupBox button.cancel{
+    width: 30%;
+    margin-top: 30px;
+    padding: 7px 0;
+    background: #28a745;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+
 .menu {
     position: fixed;
     left: 0;

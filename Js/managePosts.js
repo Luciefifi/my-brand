@@ -2,6 +2,7 @@
 
 const postsContainer = document.getElementById("postsContainer")
 const postLike = document.getElementById('postLike')
+
 var posts = ''
 const URL = "http://localhost:5000/api/getAllBlogs"
 fetch(URL)
@@ -37,7 +38,7 @@ for(let i=0; i< data.data.length; i++){
         <p>5 Comments</p>
         <div class="editPost">
             <a href="updatePost.html?postId=${postId}"><i class="fas fa-edit"></i></a>
-            <p onclick="deletePost('${title}')"><i class="fa fa-trash"></i></p>
+            <p onclick="openPopup('${postId}')"><i class="fa fa-trash"></i></p>
         </div>
         
     </fieldset> 
@@ -46,28 +47,12 @@ for(let i=0; i< data.data.length; i++){
 }
 
 
-function deletePost(postTitle){
-    var postResult = allPosts.find(function(e) {
-        return e.title == postTitle;
-      });
-    for (var j =0; j< allPosts.length; j++) {
-        var blogs = allPosts[j];
-        if (blogs.title == postResult.title) {
-            allPosts.splice(j, 1);
-        }
-    }
 
-    allPosts = JSON.stringify(allPosts);
-    localStorage.setItem("posts", allPosts);
-    history.go(0);
-}
-
-function storePostTitle(title){
-    localStorage.setItem("postTitle", title)
-    location = "updatePost.html"
- }
 
   })
 //    console.log(posts);
   .catch(error => console.log(error.message));
+
+
+
 
