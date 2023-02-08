@@ -115,10 +115,10 @@ a:hover, a:focus, a:active {
   background: linear-gradient(to right, #4ecdc4 0%, #00748c 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4ecdc4', endColorstr='#00748c',GradientType=1);
 }
-.registeredUsersContainer{
+/* .registeredUsersContainer{
     display: grid;
     grid-template-columns: auto auto auto auto auto ;
-}
+} */
 .login-panel {
   position: absolute;
   right: 0;
@@ -200,6 +200,25 @@ a:hover, a:focus, a:active {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.5);
 }
-.registeredUsersContainer h4 {
+/* .registeredUsersContainer h4 {
     color:#eb279d
+} */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+ 
+}
+td{
+  color: black;
+}
+th{
+  color: #eb279d;
 }
