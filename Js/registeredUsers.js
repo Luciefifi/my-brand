@@ -1,14 +1,53 @@
-var registeredUsers = JSON.parse(localStorage.getItem('users'))
 
-const userFirstName = document.getElementById('firstName')
-const userLastName = document.getElementById('lastName')
-const userEmail = document.getElementById('userEmail')
-const userPassword = document.getElementById('password')
+let registeredUsersContainer = document.getElementById('registeredUsersContainer');
+let firstName = document.getElementById('firstName');
+let lastName = document.getElementById('lastName');
+let userEmail = document.getElementById('userEmail');
+let role = document.getElementById('role');
+let usersContainer = document.getElementById('usersContainer')
 
-for(i=0 ; i<=registeredUsers.length ; i++){
-    userFirstName.innerHTML =  registeredUsers[i].firstName;
-    userLastName.innerHTML = registeredUsers[i].lastName;
-    userEmail.innerHTML= registeredUsers[i].userEmail;
-    userPassword.innerHTML = registeredUsers[i].userPassword
+const getData = {
+    method: "GET",
+    headers: {"auth_token": JSON.parse(localStorage.getItem("tokens"))}
+};
 
-}
+const URL = "http://localhost:5000/api/getAllUsers";
+
+fetch(URL, getData)
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    return res.json();
+  })
+  .then(data => {
+    for(let i = 0; i < data.allUsers.length; i++) {
+        const userArray = data.allUsers[i];
+console.log(userArray)
+        const firstNameValue = userArray.firstName;
+        const lastNameValue = userArray.lastName;
+        const emailValue = userArray.email;
+        const roleValue = userArray.role;
+        const userId = userArray._id
+
+        let userTemplate = `
+    
+        <tr id="${userId}">
+            <td>${firstNameValue} </td>
+            <td>${lastNameValue}</td>
+            <td>${emailValue}</td>
+            <td>${roleValue}</td>
+        </tr>
+    
+    `
+    
+   
+    
+    
+    usersContainer.innerHTML += userTemplate;
+
+
+    }
+  })
+  .catch(error => console.log(error.message));
+
