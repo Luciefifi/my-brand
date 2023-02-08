@@ -1,22 +1,31 @@
-const token = localStorage.getItem("token")
+const tokens= localStorage.getItem("token")
 const profilePicture = document.getElementById("profilePicture")
-const ourLoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
-const loginSignUpButton = document.getElementById("loginSignUpButton")
+const loginSignUpButtons = document.getElementById("loginSignUpButton")
 
 
-
-
-
-
-
-
-
-if(!token){
+if(!tokens){
   profilePicture.style.display = "none"
 }
 
 else{
-    loginSignUpButton.style.display = "none"
+    loginSignUpButtons.style.display = "none"
+}
+
+async function loggedInUser(){
+
+    const getData = {
+        method: "GET",
+        headers: {"auth_token": JSON.parse(localStorage.getItem("tokens"))}
+    }
+    
+    let response = await fetch("http://localhost:5000/api/loggedInUser", getData)
+    const fetchedData = await response.json()
+    console.log(fetchedData)
+
+    const ourLoggedInUser = fetchedData.loggedInUser
+
+
+    loginSignUpButtons.style.display = "none"
     profilePicture.innerHTML = `
     <!DOCTYPE html>
     <html lang="en">
