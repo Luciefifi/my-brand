@@ -27,7 +27,7 @@ function login(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-    fetch("http://localhost:5000/api/login", sendData)
+    fetch("https://portifolio-yanjye.onrender.com/api/login", sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)
