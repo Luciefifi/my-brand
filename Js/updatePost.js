@@ -15,7 +15,7 @@ const postId = url.searchParams.get('postId');
       headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
   }
 
-  fetch(`https://portifolio-yanjye.onrender.com/api/getSingleBlog/${postId}`, getData)
+  fetch(`http://localhost:5000/api/getSingleBlog/${postId}`, getData)
   .then(response => response.json())
   .then((fetchedData)=>{
       console.log(fetchedData)
@@ -83,7 +83,7 @@ function editPost(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-    fetch(`https://portifolio-yanjye.onrender.com/api/updatePost/${postId}`, sendData)
+    fetch(`http://localhost:5000/api/updatePost/${postId}`, sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)

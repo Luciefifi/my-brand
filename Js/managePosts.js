@@ -4,7 +4,7 @@ const postsContainer = document.getElementById("postsContainer")
 const postLike = document.getElementById('postLike')
 
 var posts = ''
-const URL = "https://portifolio-yanjye.onrender.com/api/getAllBlogs"
+const URL = "http://localhost:5000/api/getAllBlogs"
 fetch(URL)
   .then(res => {
     if (!res.ok) {

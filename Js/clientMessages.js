@@ -10,7 +10,7 @@ const getData = {
 
 
 
-const URL = "https://portifolio-yanjye.onrender.com/api/getAllMessages"
+const URL = "http://localhost:5000/api/getAllMessages"
 fetch(URL)
   .then(res => {
     if (!res.ok) {

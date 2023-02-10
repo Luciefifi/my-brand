@@ -11,7 +11,7 @@ const getData = {
     headers: {"auth_token": JSON.parse(localStorage.getItem("tokens"))}
 };
 
-const URL = "https://portifolio-yanjye.onrender.com/api/getAllUsers";
+const URL = "http://localhost:5000/api/getAllUsers";
 
 fetch(URL, getData)
   .then(res => {
