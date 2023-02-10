@@ -1,9 +1,4 @@
-const allBlogs = JSON.parse(localStorage.getItem("posts"))
-const storedTitle = localStorage.getItem("blogTitle")
 
-var targetedPost = allBlogs.find(function(e) {
-    return e.title == storedTitle;
-  });
 
   const url = new URL(window.location.href);
   const postId = url.searchParams.get('postId');
