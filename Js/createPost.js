@@ -46,7 +46,7 @@ async function createPost(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("https://portifolio-yanjye.onrender.com/api/create", sendData)
+fetch("http://localhost:5000/api/create", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

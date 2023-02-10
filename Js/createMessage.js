@@ -30,7 +30,7 @@ function contactMessage() {
     headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
   };
 
-  fetch("https://portifolio-yanjye.onrender.com/api/createMessage", sendData)
+  fetch("http://localhost:5000/api/createMessage", sendData)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
