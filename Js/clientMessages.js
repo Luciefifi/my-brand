@@ -28,6 +28,7 @@ for(let i=0; i< data.data.length; i++){
     const lastName = messagesArray.lname;
     const email = messagesArray.email;
     const message = messagesArray.message;
+    const messageId = messagesArray._id
 
     clientContainer.innerHTML += `
     <fieldset class="manageMessage">
@@ -41,8 +42,8 @@ for(let i=0; i< data.data.length; i++){
     <p class="userMessageBox">${message}</p>
    
     <div class="editPost">
-        <p onclick = "storePostTitle('${firstName}')" style="color:green">Reply</p>
-        <p onclick="deleteMessage('${email}')" style="color:red"> <i class="fa fa-trash"></i> </p>
+        <p onclick = "storeMessageId('${messageId}')" style="color:green">Reply</p>
+        <p onclick="deleteMessage('${messageId}')" style="color:red"> <i class="fa fa-trash"></i> </p>
     </div>
     
 </fieldset> 

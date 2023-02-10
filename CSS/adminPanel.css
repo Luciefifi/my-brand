@@ -99,6 +99,39 @@ html {
     cursor: pointer;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   }
+
+  .popupBox button.deleteMessage{
+    width: 40%;
+    margin-top: 30px;
+    padding: 7px 0;
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
+     font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .popupBox button.deleteUser{
+    width: 40%;
+    margin-top: 30px;
+    padding: 7px 0;
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
+     font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+  
   
   .popupBox button.cancel{
     width: 30%;

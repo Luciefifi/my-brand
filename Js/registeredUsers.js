@@ -37,6 +37,7 @@ console.log(userArray)
             <td>${lastNameValue}</td>
             <td>${emailValue}</td>
             <td>${roleValue}</td>
+
         </tr>
     
     `

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
@@ -40,17 +40,15 @@
             <div class="col-lg-12 page-main">
 
             <div class="container" id="clientContainer">
-            <!-- <fieldset class="manageMessage">
-            
-                    <p class="headings">client info</p>
-                    <p class="headings">Client Message</p>
-                    <p class="headings">Options</p>
-        
-                    
-                </fieldset> -->
-           
-
-            <!-- <a  onclick="deleteMessage('${visitorTel}')" style="color:red ; cursor:pointer">delete</a>/<a href="" style="color:green">reply</a> -->
+            <!-- popupBox -->
+    <div class="popupBox" id="popupBox">
+        <img src="./Assets/attention.png" alt="">
+        <h2>Confirm!</h2>
+        <p id="accessDeniedText">Are you sure you want to delete this message? This process is irreversible!</p>
+        <div class="buttons">
+            <button type="submit" class="cancel" onclick="closePopup()">Cancel</button>
+            <button onclick="deleteMessage()"  class="deleteMessage">Delete Message</button>
+        </div>
         </div>
            </div>
           
@@ -64,6 +62,7 @@
     <script src="./Js/adminPanel.js"></script>
     <script src="./Js/clientMessages.js"></script>
     <script src="./Js/loggedInUser.js"></script>
+    <script src="./Js/deleteMessage.js"></script>
 
 </body>
 

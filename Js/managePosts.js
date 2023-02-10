@@ -13,14 +13,7 @@ fetch(URL)
     return res.json();
   })
   .then(data => {
-    // posts = data;
-    // console.log(posts);
-//     posts = data;
-//     console.log(posts);
-//     var allPosts;
-// allPosts = posts
-// console.log(allPosts)
-// console.log()
+ 
 for(let i=0; i< data.data.length; i++){
     postsArray = data.data[i]
     console.log(postsArray)
