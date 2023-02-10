@@ -9,7 +9,7 @@ async function allusers(){
    
     const registeredUsers = document.getElementById('registeredUsers')
      registeredUsers.style.paddingTop= "25px"
-    let response = await fetch("http://localhost:5000/api/getAllUsers")
+    let response = await fetch("https://portifolio-yanjye.onrender.com/api/getAllUsers")
     const fetchedData = await response.json()
      availableUsers = fetchedData.allUsers.length
     console.log(availableUsers)
@@ -26,7 +26,7 @@ console.log(availableUsers)
 
 let allAvailablePosts = ''
 
-const URL = "http://localhost:5000/api/getAllBlogs"
+const URL = "https://portifolio-yanjye.onrender.com/api/getAllBlogs"
 fetch(URL)
   .then(res => {
     if (!res.ok) {
@@ -54,7 +54,7 @@ else{
 
 let allAvailableMessages = ''
   
-  fetch("http://localhost:5000/api/getAllMessages")
+  fetch("https://portifolio-yanjye.onrender.com/api/getAllMessages")
     .then(res => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
