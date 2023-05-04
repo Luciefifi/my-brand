@@ -36,8 +36,6 @@ const postId = url.searchParams.get('postId');
 
   })
 
-
-
 //Edit a post
 const blogForm = document.getElementById("blogForm")
 const blogTitle = document.getElementById("blogTitle")
