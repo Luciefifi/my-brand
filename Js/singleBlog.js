@@ -13,7 +13,7 @@ var targetedPost = allBlogs.find(function(e) {
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    fetch(`http://localhost:5000/api/getSingleBlog/${postId}`, getData)
+    fetch(`https://nice-ruby-squid-slip.cyclic.app/api/getSingleBlog/${postId}`, getData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)

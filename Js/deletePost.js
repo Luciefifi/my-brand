@@ -18,7 +18,7 @@ async function deletePost(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch("http://localhost:5000/api/deleteBlog/"+postIdDeletion, getData)
+    let response = await fetch("https://nice-ruby-squid-slip.cyclic.app/api/deleteBlog/"+postIdDeletion, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 
