@@ -11,7 +11,7 @@ const getData = {
     headers: {"auth_token": JSON.parse(localStorage.getItem("tokens"))}
 };
 
-const URL = "http://localhost:5000/api/getAllUsers";
+const URL = "https://nice-ruby-squid-slip.cyclic.app/api/getAllUsers";
 
 fetch(URL, getData)
   .then(res => {
