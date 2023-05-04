@@ -4,7 +4,7 @@ const postsContainer = document.getElementById("postsContainer")
 const postLike = document.getElementById('postLike')
 
 var posts = ''
-const URL = "http://localhost:5000/api/getAllBlogs"
+const URL = "https://nice-ruby-squid-slip.cyclic.app/api/getAllBlogs"
 fetch(URL)
   .then(res => {
     if (!res.ok) {

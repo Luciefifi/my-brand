@@ -18,7 +18,7 @@ async function loggedInUser(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch("http://localhost:5000/api/loggedInUser", getData)
+    let response = await fetch("https://nice-ruby-squid-slip.cyclic.app/api/loggedInUser", getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 

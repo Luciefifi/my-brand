@@ -30,7 +30,7 @@ function contactMessage() {
     headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
   };
 
-  fetch("http://localhost:5000/api/createMessage", sendData)
+  fetch("https://nice-ruby-squid-slip.cyclic.app/api/createMessage", sendData)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
