@@ -5,8 +5,6 @@ const storedTitle = localStorage.getItem("postTitle")
 var targetedPost = allBlogs.find(function(e) {
     return e.title == storedTitle;
   });
-
-
 const url = new URL(window.location.href);
 const postId = url.searchParams.get('postId');
 
@@ -35,8 +33,6 @@ const postId = url.searchParams.get('postId');
       singleBlogBody.innerHTML = singleBlog.blogBody;
 
   })
-
-
 
 //Edit a post
 const blogForm = document.getElementById("blogForm")
@@ -83,7 +79,7 @@ function editPost(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-    fetch(`http://localhost:5000/api/updatePost/${postId}`, sendData)
+    fetch(`https://nice-ruby-squid-slip.cyclic.app/api/updatePost/${postId}`, sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)
