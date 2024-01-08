@@ -295,19 +295,60 @@ div.myWork {
   width: 100%;
 }
 
-div.works_boxes {
+/* div.works_boxes {
   background-color: #eb279d;
   box-shadow: 0px 0px 20px gray;
   text-align: center;
   margin-top: 1.5vw;
   margin-bottom: 2.4vw;
   cursor: pointer;
+} */
+
+div.project-demo{
+  /* background-color: #eb279d; */
+  display: block;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 30%;
+  margin-left: 20%
+
+}
+div.project-demo button{
+  /* display: flex;
+  width: 30%;
+  height: 10%;
+ align-items: center; */
+ /* background-color: initial; */
+ background-color: #eb279d;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 7px;
+    padding: 10px 20px;
+    position: relative;
+    transition: .3s ease-in-out;
+
+}
+
+
+div.project-demo button:hover {
+  background-color: white;
+  transform: scale(1.1, 1.1);
+  color: #eb279d;
 }
 
 div.works_boxes img {
   width: 100%;
   height: 100%;
+  
 }
+.works_boxes{
+  border-radius: 7%;
+}
+
 
 div.workContent {
   color: black;
@@ -322,7 +363,7 @@ div.works_text p {
   font-size: 1.16vw;
 }
 
-div.box1 {
+/* div.box1 {
   transition: all 1s;
 }
 
@@ -330,9 +371,9 @@ div.box1:hover {
   background-color: rgb(10, 76, 147);
   transform: scale(1.1, 1.1);
   color: white;
-}
+} */
 
-div.box2 {
+/* div.box2 {
   transition: all 1s;
 }
 
@@ -380,7 +421,7 @@ div.box6:hover {
   background-color: #2e667d;
   transform: scale(1.1, 1.1);
   color: white;
-}
+} */
 
 div.works_icons {
   margin-top: -20%;
@@ -2020,6 +2061,10 @@ div.mySkills {
     margin-top: 1.5vw;
     margin-bottom: 2.4vw;
     cursor: pointer;
+  }
+  div.works_boxes .box1{
+    background-image: url('./Assets/Sap54.jpg');
+
   }
 
   div.skills_icons {
